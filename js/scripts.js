@@ -25,9 +25,11 @@ function createList(finalArray) {
   ul.innerText = "";
   finalArray.forEach(element => {
     let li = document.createElement("li");
+    li.classList.add("list-group-item");
     li.append(element);
     ul.append(li);
   });
+  document.querySelectorAll("li").classList.add("list-group-item")
 }
 
 
