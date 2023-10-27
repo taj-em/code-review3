@@ -3,17 +3,20 @@ function processNum(num) {
   const responseArray = [0, "hello one", "hello two", "hello three"]
   const numArray = num.toString().split("");
   console.log("Num Array : " + numArray);
-  numArray.forEach(element => {
-    if (targetArray.includes(element)) {
-      console.log(responseArray[element]);
-    }
-  });
+  for (let index = 0; index <= num; index += 1) {
+      console.log(index);
+      if (targetArray.includes(index)) {
+        console.log(responseArray[index]);
+      }
+    };
 }
 
 
 function display(event) {
   event.preventDefault();
-  
+  const number = document.getElementById("num-input").value;
+  const output = processNum(number);
+  document.getElementById("display").innerText = output;
 }
 
 
