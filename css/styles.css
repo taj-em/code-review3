@@ -1,0 +1,45 @@
+#reset-btn {
+  background-color: #852C15;
+  color: white;
+  font-size: 17px;
+  margin-top: 1%;
+  float: left;
+}
+
+#darkMode-btn {
+  font-size: 17px;
+  margin-top: 1%;
+  float: right;
+}
+
+#lightMode-btn {
+  font-size: 17px;
+  margin-top: 1%;
+  float: right;
+  display: none;
+}
+
+
+.title {
+  font-weight: 100;
+  text-align: center;
+}
+
+.sub-title {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-style: italic;
+  text-decoration: underline;
+  text-decoration-color: #852C15;
+  text-decoration-thickness: 8px;
+  text-align: center;
+}
+
+
+#display {
+  height: 20%;
+  width: 20%;
+  padding: 0;
+  float: left;
+  text-align: right;
+  border: 2px double;
+}
