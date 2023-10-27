@@ -1,45 +1,36 @@
-function processNum(num) {
-  const targetArray = ["0", "1", "2", "3"];
-  const responseArray = [0, "hello one", "hello two", "hello three"]
+function calc(num) {
   let finalArray = [];
-  //logs every number from 0 to the input
+  const responseArray = ["beep", "boop", "would you be my neighbor"]
   for (let index = 0; index <= num; index += 1) {
-    let indexArray = index.toString().split("");
-    if (indexArray[0] == 3) {
-      finalArray.push(responseArray[3]);
-    } else if (indexArray[1] == 3) {
-      finalArray.push(responseArray[3]);
-    } else if (indexArray[0] == 2) {
-      finalArray.push(responseArray[2]);
-    } else if (indexArray[1] == 2) {
-      finalArray.push(responseArray[2]);
-    } else if (indexArray[0] == 1) {
+    let indexArray = index.toString().split("")
+    if (indexArray.includes("3")) {
+      finalArray.push(responseArray[2])
+    } else if (indexArray.includes("2")) {
       finalArray.push(responseArray[1]);
-    } else if (indexArray[1] == 1) {
-      finalArray.push(responseArray[1]);
-    } else {
-      finalArray.push(index);
-    }
+    } else if (indexArray.includes("1")) {
+      finalArray.push(responseArray[0]);
+    } else { finalArray.push(index) }
   }
-  console.log(finalArray)
+  createList(finalArray);
 }
-  function display(event) {
-    event.preventDefault();
-    const number = document.getElementById("num-input").value;
-    const output = processNum(number);
-    document.getElementById("display").innerText = output;
-  }
 
+function initiate(event) {
+  event.preventDefault();
+  const number = document.getElementById("num-input").value;
+  calc(number);
+}
 
-  window.addEventListener("load", function () {
-    this.document.querySelector("form").addEventListener("submit", display)
+function createList(finalArray) {
+  const ul = document.querySelector("ul");
+  ul.innerText = "";
+  finalArray.forEach(element => {
+    let li = document.createElement("li");
+    li.append(element);
+    ul.append(li);
   });
+}
 
 
-
-
-// for (let index = 0; index <= num; index += 1) {
-//   console.log(index);
-//   if (targetArray.includes(index)) {
-//     console.log("hello");
-
+window.addEventListener("load", function () {
+  this.document.querySelector("form").addEventListener("submit", initiate)
+});
