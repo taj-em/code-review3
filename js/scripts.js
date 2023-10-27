@@ -27,12 +27,43 @@ function createList(finalArray) {
     let li = document.createElement("li");
     li.classList.add("list-group-item");
     li.append(element);
-    ul.append(li);
+    ul.prepend(li);
   });
-  document.querySelectorAll("li").classList.add("list-group-item")
+}
+
+function reset(event) {
+  location.reload();
 }
 
 
+function darkMode(event) {
+  document.querySelector("body").style.backgroundColor = "black";
+  document.querySelector("body").style.color = "white";
+  document.querySelector("h1").style.textDecorationColor = "#8948E9";
+  document.getElementById("submit-btn").style.borderColor = "white";
+  document.getElementById("reset-btn").style.backgroundColor = "#8948E9";
+  document.getElementById("reset-btn").style.borderColor = "white";
+  document.getElementById("darkMode-btn").style.display = "none";
+  document.getElementById("lightMode-btn").style.display = "initial";
+}
+
+
+
+function lightMode(event) {
+  document.querySelector("body").style.backgroundColor = "white";
+  document.querySelector("body").style.color = "black";
+  document.querySelector("h1").style.textDecorationColor = "#852C15";
+  document.getElementById("submit-btn").style.borderColor = "black";
+  document.getElementById("reset-btn").style.backgroundColor = "#852C15";
+  document.getElementById("reset-btn").style.borderColor = "black";
+  document.getElementById("reset-btn").style.backgroundColor = "#852C15";
+  document.getElementById("lightMode-btn").style.display = "none";
+  document.getElementById("darkMode-btn").style.display = "initial"
+}
+
 window.addEventListener("load", function () {
-  this.document.querySelector("form").addEventListener("submit", initiate)
+  document.getElementById("reset-btn").addEventListener("click", reset)
+  document.getElementById("darkMode-btn").addEventListener("click", darkMode)
+  document.getElementById("lightMode-btn").addEventListener("click", lightMode)
+  document.querySelector("form").addEventListener("submit", initiate)
 });

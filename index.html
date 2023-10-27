@@ -17,30 +17,29 @@
         <button id="reset-btn" class="btn">Reset</button>
         <button id="darkMode-btn" class="btn btn-dark">Dark Mode</button>
         <button id="lightMode-btn" class="btn btn-light">Light Mode</button>
-        <h1 class="title"></h1>
+        <h1 class="title">Please Enter A Number</h1>
       </div>
     </div>
     <hr>
     <div class="row">
-      <div class="col user-input">
-        <form>
-          <input placeholder="Enter A Number" class="form-control" type="number" id="num-input" name="num-input"
-            min="0">
-          <button class="btn btn-success" type="submit">Submit</button>
-        </form>
-      </div>
+      <form>
+        <div class="col" id="user-input">
+
+          <button class="btn btn-success" type="submit" id="submit-btn"><input placeholder="Enter A Number"
+              class="form-control text-center" type="number" id="num-input" name="num-input" min="0"></button>
+        </div>
+      </form>
     </div>
-    <div class="row display">
-          <hr>
-        <h1 class="display-3 text-center">Your Output Is:</h1>
-          <hr>
-        <ul class="border list-group ul">
+    <div class="row">
+      <div class="col" id="display">
+        <hr>
+        <h1 class="display-3 text-center" id="display-title">Your Output Is:</h1>
+        <hr>
+        <ul class= "list-group ul">
 
         </ul>
       </div>
     </div>
-  </div>
-  </div>
   </div>
 </body>
 
