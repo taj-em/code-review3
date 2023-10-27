@@ -21,3 +21,9 @@ Describe: createList();
 Test: "Display 6 of the accumulated responses at a time"
 Code: createList(50);
 Expected Result: [45, 46, 47, 48, 49, 50]
+
+Describe: vowelCounter();
+
+Test: "Display the number of vowels created"
+Code: createList(1);
+Expected Result: Total Vowels: 2

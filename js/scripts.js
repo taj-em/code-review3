@@ -1,3 +1,20 @@
+function vowelCounter(finalArray) {
+  const vowelArray = ["a","e","i","o","u"]
+  let vowelCount = 0;
+  finalArray.forEach(item => {
+    let itemArray = item.split("");
+    itemArray.forEach(letter => {
+      if (vowelArray.includes(letter)) {
+        vowelCount += 1;
+      }
+    });
+  });
+  return vowelCount.toString();
+}
+
+
+
+
 function calc(num, name) {
   let finalArray = [];
   const responseArray = ["Beep!", "Boop!!", name + ", would you be my neighbor?"]
@@ -9,9 +26,10 @@ function calc(num, name) {
       finalArray.push(responseArray[1]);
     } else if (indexArray.includes("1")) {
       finalArray.push(responseArray[0]);
-    } else { finalArray.push(index) }
+    } else { finalArray.push(index.toString()) }
   }
-  createList(finalArray);
+  const numOfVowels = vowelCounter(finalArray);
+  createList(finalArray, numOfVowels);
 }
 
 
@@ -24,8 +42,10 @@ function initiate(event) {
   calc(number, name);
 }
 
-function createList(finalArray) {
+function createList(finalArray, numOfVowels) {
   const ul = document.querySelector("ul");
+  const p = document.querySelector("p");
+  p.innerText = "Total Vowels: " + numOfVowels;
   ul.innerText = "";
   let runningCount = 0;
   finalArray.forEach(element => {
@@ -40,6 +60,7 @@ function createList(finalArray) {
       runningCount = 6;
     }
   });
+
   }
 
 function reset(event) {
@@ -54,6 +75,8 @@ function darkMode(event) {
   document.getElementById("submit-btn").style.borderColor = "white";
   document.getElementById("reset-btn").style.backgroundColor = "#8948E9";
   document.getElementById("reset-btn").style.borderColor = "white";
+  document.getElementById("submit-name").style.backgroundColor = "#8948E9";
+  document.getElementById("submit-name").style.borderColor = "white";
   document.getElementById("darkMode-btn").style.display = "none";
   document.getElementById("lightMode-btn").style.display = "initial";
 }
@@ -67,7 +90,8 @@ function lightMode(event) {
   document.getElementById("submit-btn").style.borderColor = "black";
   document.getElementById("reset-btn").style.backgroundColor = "#852C15";
   document.getElementById("reset-btn").style.borderColor = "black";
-  document.getElementById("reset-btn").style.backgroundColor = "#852C15";
+  document.getElementById("submit-name").style.backgroundColor = "#0d6efd";
+  document.getElementById("submit-name").style.borderColor = "black";
   document.getElementById("lightMode-btn").style.display = "none";
   document.getElementById("darkMode-btn").style.display = "initial"
 }
