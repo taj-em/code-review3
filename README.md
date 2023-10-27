@@ -15,6 +15,10 @@
 
 _After entering your name and a number and pressing Enter, will display the most recent five numbers in descending order while replacing any letter containing 1, 2 or 3 with a predetermined sentence/word_
 
+## GitHub Pages Link:
+
+- _https://taj-em.github.io/code-review3/_
+
 ## Setup/Installation Requirements
 
 - _Clone repo from GitHub_
