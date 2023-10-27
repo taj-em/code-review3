@@ -14,6 +14,9 @@ function calc(num) {
   createList(finalArray);
 }
 
+
+
+
 function initiate(event) {
   event.preventDefault();
   const number = document.getElementById("num-input").value;
@@ -23,13 +26,20 @@ function initiate(event) {
 function createList(finalArray) {
   const ul = document.querySelector("ul");
   ul.innerText = "";
+  let runningCount = 0;
   finalArray.forEach(element => {
+    runningCount += 1;
     let li = document.createElement("li");
     li.classList.add("list-group-item");
     li.append(element);
     ul.prepend(li);
+    if (runningCount === 7) {
+    let liOld = document.querySelectorAll("li");
+    liOld[liOld.length-1].remove();
+      runningCount = 6;
+    }
   });
-}
+  }
 
 function reset(event) {
   location.reload();
