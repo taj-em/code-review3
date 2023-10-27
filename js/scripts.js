@@ -6,20 +6,20 @@ function vowelCounter(finalArray) {
     itemArray.forEach(letter => {
       if (vowelArray.includes(letter)) {
         vowelCount += 1;
-      }
+      };
     });
   });
   return vowelCount.toString();
-}
+};
 
 
 
 
 function calc(num, name) {
   let finalArray = [];
-  const responseArray = ["Beep!", "Boop!!", name + ", would you be my neighbor?"]
+  const responseArray = ["Beep!", "Boop!!", name + " would you be my neighbor?"];
   for (let index = 0; index <= num; index += 1) {
-    let indexArray = index.toString().split("")
+    let indexArray = index.toString().split("");
     if (indexArray.includes("3")) {
       finalArray.push(responseArray[2])
     } else if (indexArray.includes("2")) {
@@ -27,10 +27,10 @@ function calc(num, name) {
     } else if (indexArray.includes("1")) {
       finalArray.push(responseArray[0]);
     } else { finalArray.push(index.toString()) }
-  }
+  };
   const numOfVowels = vowelCounter(finalArray);
   createList(finalArray, numOfVowels);
-}
+};
 
 
 
@@ -40,12 +40,12 @@ function initiate(event) {
   const number = document.getElementById("num-input").value;
   const name = document.getElementById("name-input").value;
   calc(number, name);
-}
+};
 
 function createList(finalArray, numOfVowels) {
   const ul = document.querySelector("ul");
-  const p = document.querySelector("p");
-  p.innerText = "Total Vowels: " + numOfVowels;
+  const vowelDisplay = document.getElementById("number-vowels");
+  vowelDisplay.innerText =  numOfVowels;
   ul.innerText = "";
   let runningCount = 0;
   finalArray.forEach(element => {
@@ -58,14 +58,13 @@ function createList(finalArray, numOfVowels) {
     let liOld = document.querySelectorAll("li");
     liOld[liOld.length-1].remove();
       runningCount = 6;
-    }
+    };
   });
-
-  }
+  };
 
 function reset(event) {
   location.reload();
-}
+};
 
 
 function darkMode(event) {
@@ -77,9 +76,11 @@ function darkMode(event) {
   document.getElementById("reset-btn").style.borderColor = "white";
   document.getElementById("submit-name").style.backgroundColor = "#8948E9";
   document.getElementById("submit-name").style.borderColor = "white";
+  document.getElementById("vowel-display").classList.remove("border-dark");
+  document.getElementById("vowel-display").classList.add("border-light");
   document.getElementById("darkMode-btn").style.display = "none";
   document.getElementById("lightMode-btn").style.display = "initial";
-}
+};
 
 
 
@@ -92,13 +93,15 @@ function lightMode(event) {
   document.getElementById("reset-btn").style.borderColor = "black";
   document.getElementById("submit-name").style.backgroundColor = "#0d6efd";
   document.getElementById("submit-name").style.borderColor = "black";
+  document.getElementById("vowel-display").classList.remove("border-light");
+  document.getElementById("vowel-display").classList.add("border-dark");
   document.getElementById("lightMode-btn").style.display = "none";
-  document.getElementById("darkMode-btn").style.display = "initial"
-}
+  document.getElementById("darkMode-btn").style.display = "initial";
+};
 
 window.addEventListener("load", function () {
-  document.getElementById("reset-btn").addEventListener("click", reset)
-  document.getElementById("darkMode-btn").addEventListener("click", darkMode)
-  document.getElementById("lightMode-btn").addEventListener("click", lightMode)
-  document.querySelector("form").addEventListener("submit", initiate)
+  document.getElementById("reset-btn").addEventListener("click", reset);
+  document.getElementById("darkMode-btn").addEventListener("click", darkMode);
+  document.getElementById("lightMode-btn").addEventListener("click", lightMode);
+  document.querySelector("form").addEventListener("submit", initiate);
 });
