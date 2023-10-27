@@ -49,11 +49,21 @@
   margin-right: auto;
 }
 
+#submit-name {
+  margin: 0 auto;
+  margin-bottom: 5px;
+  border: 2px black double;
+}
+
 #submit-btn {
 
   margin: 0 auto;
   margin-bottom: 5px;
   border: 2px black double;
+}
+
+#name-input {
+  margin: 0 auto;
 }
 
 #num-input {

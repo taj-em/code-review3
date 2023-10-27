@@ -1,6 +1,6 @@
-function calc(num) {
+function calc(num, name) {
   let finalArray = [];
-  const responseArray = ["beep", "boop", "would you be my neighbor"]
+  const responseArray = ["Beep!", "Boop!!", name + ", would you be my neighbor?"]
   for (let index = 0; index <= num; index += 1) {
     let indexArray = index.toString().split("")
     if (indexArray.includes("3")) {
@@ -20,7 +20,8 @@ function calc(num) {
 function initiate(event) {
   event.preventDefault();
   const number = document.getElementById("num-input").value;
-  calc(number);
+  const name = document.getElementById("name-input").value;
+  calc(number, name);
 }
 
 function createList(finalArray) {
